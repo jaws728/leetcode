@@ -49,3 +49,20 @@ const rec = (arr, n) => {
 
 console.log(fibonacci(10));
 console.log(calculate(10));
+
+// 双指针迭代 + 保存
+const iterate = n => {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+
+  let low = 0,
+    high = 1;
+  for (let i = 2; i <= n; i++) {
+    let sum = low + high;
+    low = high;
+    high = sum;
+  }
+  return high;
+};
+
+console.log(iterate(10));
